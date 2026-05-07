@@ -1,11 +1,13 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3.9.6-eclipse-temurin-17'
-        }
-    }
+    agent any
 
     stages {
+
+        stage('GitHub Checkout') {
+            steps {
+                echo 'Code pulled from GitHub'
+            }
+        }
 
         stage('Build Maven Project') {
             steps {
